@@ -1,0 +1,298 @@
+// 01 Palette
+// 1
+$L3_1: #e6f7fe;
+$L3_2: #feefea;
+$L3_3: #fdfeed;
+$L3_4: #f0f0f1;
+
+// 2
+$L2_1: #c0e9fc;
+$L2_2: #fdd6ca;
+$L2_3: #fafdd2;
+$L2_4: #d8dadb;
+
+// 3
+$L1_1: #68cbf8;
+$L1_2: #fa9e81;
+$L1_3: #f3fb94;
+$L1_4: #a2a5a9;
+
+// 4
+$P_1: #03a9f3;
+$P_2: #f75d2d;
+$P_3: #ebf94d;
+$P_4: #656a70;
+
+// 5
+$D1_1: #0287c2;
+$D1_2: #c54a24;
+$D1_3: #bcc73e;
+$D1_4: #51555a;
+
+// 6
+$D2_1: #015479;
+$D2_2: #7b2e16;
+$D2_3: #757c26;
+$D2_4: #323538;
+
+// 7
+$D3_1: #013248;
+$D3_2: #4a1c0d;
+$D3_3: #464a17;
+$D3_4: #1e2021;
+
+// $D2_4: #323538;
+// $D3_4: #1e2021;
+
+@font-face {
+    font-family: "Poppins Bold";
+    src: url(../fonts/Poppins-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Poppins Medium";
+    src: url(../fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Poppins Regular";
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
+.palette {
+    width: 400px;
+    > .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        > div {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+
+            // 1
+            &[data-color="L3#1"] {
+                background-color: $L3_1;
+            }
+            &[data-color="L3#2"] {
+                background-color: $L3_2;
+            }
+            &[data-color="L3#3"] {
+                background-color: $L3_3;
+            }
+            &[data-color="L3#4"] {
+                background-color: $L3_4;
+            }
+
+            // 2
+            &[data-color="L2#1"] {
+                background-color: $L2_1;
+            }
+            &[data-color="L2#2"] {
+                background-color: $L2_2;
+            }
+            &[data-color="L2#3"] {
+                background-color: $L2_3;
+            }
+            &[data-color="L2#4"] {
+                background-color: $L2_4;
+            }
+
+            // 3
+            &[data-color="L1#1"] {
+                background-color: $L1_1;
+            }
+            &[data-color="L1#2"] {
+                background-color: $L1_2;
+            }
+            &[data-color="L1#3"] {
+                background-color: $L1_3;
+            }
+            &[data-color="L1#4"] {
+                background-color: $L1_4;
+            }
+
+            // 4
+            &[data-color="P#1"] {
+                background-color: $P_1;
+            }
+            &[data-color="P#2"] {
+                background-color: $P_2;
+            }
+            &[data-color="P#3"] {
+                background-color: $P_3;
+            }
+            &[data-color="P#4"] {
+                background-color: $P_4;
+            }
+
+            // 5
+            &[data-color="D1#1"] {
+                background-color: $D1_1;
+            }
+            &[data-color="D1#2"] {
+                background-color: $D1_2;
+            }
+            &[data-color="D1#3"] {
+                background-color: $D1_3;
+            }
+            &[data-color="D1#4"] {
+                background-color: $D1_4;
+            }
+
+            // 6
+            &[data-color="D2#1"] {
+                background-color: $D2_1;
+            }
+            &[data-color="D2#2"] {
+                background-color: $D2_2;
+            }
+            &[data-color="D2#3"] {
+                background-color: $D2_3;
+            }
+            &[data-color="D2#4"] {
+                background-color: $D2_4;
+            }
+
+            // 7
+            &[data-color="D3#1"] {
+                background-color: $D3_1;
+            }
+            &[data-color="D3#2"] {
+                background-color: $D3_2;
+            }
+            &[data-color="D3#3"] {
+                background-color: $D3_3;
+            }
+            &[data-color="D3#4"] {
+                background-color: $D3_4;
+            }
+
+            &::after {
+                counter-increment: color-number;
+                content: attr(data-color);
+                display: inline-block;
+                position: relative;
+                left: calc(100% + 15px);
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+// 02 Typography
+.typography {
+    span {
+        font-size: 14px;
+        color: #a3a6a9;
+    }
+
+    @mixin typography($size, $font, $color) {
+        font-size: $size;
+        font-family: $font;
+        color: $color;
+    }
+
+    h1 {
+        @include typography(35px, "Poppins Bold", $D3_4);
+    }
+
+    h2 {
+        @include typography(33px, "Poppins Medium", $D2_4);
+    }
+
+    h3 {
+        @include typography(27px, "Poppins Medium", $D3_4);
+    }
+
+    h4 {
+        @include typography(22px, "Poppins Medium", $D3_4);
+    }
+
+    h5 {
+        @include typography(17px, "Poppins Medium", $D3_4);
+    }
+
+    h6 {
+        @include typography(15px, "Poppins Medium", $D3_4);
+    }
+    
+    .block {
+        display: flex;
+        justify-content: space-between;
+
+        .column {
+            width: 45%;
+
+            .row {
+                padding-top: 50px;
+
+                .paragraph {
+                    p {
+                        @include typography(14px, "Poppins Regular", $D3_4);
+                    }
+                }
+
+                .subtitle {
+                    p {
+                        @include typography(20px, "Poppins Medium", $D3_4);
+
+                        sub {
+                            display: block;
+                            color: #ffffff;
+                            background-color: #03a9f3;
+                            padding: 10px;
+                        }
+                    }
+                }
+
+                .list-style {
+                    ul {
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    li {
+                        list-style-type: none;
+                        line-height: 30px;
+
+                        @include typography(15px, "Poppins Medium", $D3_4);
+
+                        &::before {
+                            content: "\1F5F8";
+                            display: inline-block;
+                            position: relative;
+                            background-color: blue;
+                            line-height: 15px;
+                            padding: 2px 4px;
+                            color: white;
+                            border-radius: 50%;
+                            right: 5px;
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+
+                .quotation {
+                    q {
+                        display: block;
+                        color: #03a9f3;
+                        border-left: 2px solid #03a9f3;
+                        background-color: #e5f7fd;
+                        margin-bottom: 20px;
+                        padding: 10px 20px;
+
+                        @include typography(17px, "Poppins Regular", $D3_4);
+                    }
+                }
+            }
+        }
+    }
+}
